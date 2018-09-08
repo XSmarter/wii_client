@@ -8,14 +8,14 @@
             <div class="wii-user-login-box wii-user-login-body">
                 <div class="mayui-form-item">
                     <label class="wii-user-login-icon mayui-icon mayui-icon-user"></label>
-                    <input type="text" class="mayui-form" placeholder="请输入用户名" />
+                    <input type="text" class="mayui-form" id="user-name" v-model="userName" placeholder="请输入用户名" />
                 </div>
                 <div class="mayui-form-item">
                     <label class="wii-user-login-icon mayui-icon mayui-icon-userpwd"></label>
-                    <input type="text" class="mayui-form" placeholder="请输入密码" />
+                    <input type="text" class="mayui-form" id="password" v-model="password" placeholder="请输入密码" />
                 </div>
                 <div class="mayui-form-item">
-                    <input type="checkbox" name="remember" title="记住密码" class="mayui-vm"> <span class="mayui-vm">记住密码</span>
+                    <input type="checkbox" name="remember" id="remember" title="记住密码" class="mayui-vm"> <label for="remember" class="mayui-vm">记住密码</label>
                 </div>
                 <div class="mayui-form-item">
                     <button class="mayui-btn mayui-btn-fluid" id="login_submit_id" @click="login">登 入</button>
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="wii-user-login-footer">
-            <p>© 2018 <a href="http://www.wii.com/" target="_blank">www.wii.com</a></p>
+            <p>© 2018 <a href="http://www.wii.pub/" target="_blank">www.wii.pub</a></p>
         </div>
     </div>
 </template>
@@ -34,14 +34,15 @@ export default {
   name: 'Login',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      userName:'',
+      password:''
     }
   },
   methods: {
     login () {
       this.$api.user.login({
-              name:123,
-              password:123
+              name:this.userName,
+              password:this.password
           }).then(res=> {
               // 执行某些操作
               if(res.data.success){
