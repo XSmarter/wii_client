@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="wii-user-login-footer">
-            <p>© 2018 <a href="http://www.wii.com/" target="_blank">wii.com</a></p>
+            <p>© 2018 <a href="http://www.wii.com/" target="_blank">www.wii.com</a></p>
         </div>
     </div>
 </template>
